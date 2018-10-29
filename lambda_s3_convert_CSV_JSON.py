@@ -3,9 +3,11 @@ import json
 import boto3
 
 def lambda_handler(event, context):
-    targetbucket = 'exampro-harvester'
-    csvkey = 'import.csv'
-    jsonkey = 'import.json'
+    
+    targetbucket = 'BUCKET NAME'
+    csvkey = 'FILENAME.csv'
+    jsonkey = 'FILENAME.json'
+    
     s3 = boto3.resource('s3')
     csv_object = s3.Object(targetbucket, csvkey)
     csv_content = csv_object.get()['Body'].read().splitlines()
